@@ -1,6 +1,8 @@
 package com.sparta.preonboarding.controller;
 
 
+import com.sparta.preonboarding.dto.LoginRequestDto;
+import com.sparta.preonboarding.dto.LoginResponseDto;
 import com.sparta.preonboarding.dto.SignupRequestDto;
 import com.sparta.preonboarding.dto.SignupResponseDto;
 import com.sparta.preonboarding.service.AuthService;
@@ -17,6 +19,11 @@ public class AuthController {
     @PostMapping("signup")
     public SignupResponseDto signup(@RequestBody SignupRequestDto signupRequestDto) {
         return authService.signup(signupRequestDto);
+    }
+
+    @PostMapping("login")
+    public LoginResponseDto login(@RequestBody LoginRequestDto loginRequestDto) {
+        return authService.login(loginRequestDto);
     }
 
 }
