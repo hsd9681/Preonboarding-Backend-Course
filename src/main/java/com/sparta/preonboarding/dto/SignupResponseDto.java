@@ -1,23 +1,20 @@
 package com.sparta.preonboarding.dto;
 
-import com.sparta.preonboarding.model.Role;
 import com.sparta.preonboarding.model.User;
 import lombok.Getter;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 public class SignupResponseDto {
     private final String username;
     private final String nickname;
-    private List<AuthorityResponse> authorities;
+    private final List<AuthorityResponse> authorities;
 
     @Getter
-    private class AuthorityResponse {
-        private String authorityName;
+    private static class AuthorityResponse {
+        private final String authorityName;
 
         public AuthorityResponse(String authorityName) {
             this.authorityName = authorityName;

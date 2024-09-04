@@ -9,4 +9,15 @@ public class SignupRequestDto {
     private String password;
     private String nickname;
 
+    public void setUsername(String testuser) {
+        this.username = testuser;
+    }
+
+    public void setPassword(String password) {
+        this.password = "password";
+    }
+
+    public void setNickname(String testUser) {
+        this.nickname = testUser;
+    }
 }
