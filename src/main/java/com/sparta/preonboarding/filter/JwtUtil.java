@@ -27,6 +27,12 @@ public class JwtUtil {
         byte[] keyBytes = secretKey.getBytes();
         key = Keys.hmacShaKeyFor(keyBytes);
     }
+    // 비밀 키 설정 메소드 추가
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+        byte[] keyBytes = secretKey.getBytes();
+        key = Keys.hmacShaKeyFor(keyBytes);
+    }
 
     // 토큰 생성
     public String createToken(String username, Role role) {
@@ -50,9 +56,11 @@ public class JwtUtil {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
         } catch (Exception e) {
+            e.printStackTrace(); // 예외를 콘솔에 출력하여 확인
             return false;
         }
     }
+
 
     // 토큰에서 사용자 정보 가져오기
     public Claims getUserInfoFromToken(String token) {
